@@ -1,10 +1,7 @@
-nano wordpress-deployment.yaml
-
 apiVersion: v1
 kind: Service
 metadata:
   name: wordpress
-  namespace: wordpress
   labels:
     app: wordpress
 spec:
@@ -19,7 +16,6 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: wp-pv-claim
-  namespace: wordpress
   labels:
     app: wordpress
 spec:
@@ -33,7 +29,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
-  namespace: wordpress
   labels:
     app: wordpress
 spec:
@@ -82,11 +77,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wordpress-ingress
-  namespace: wordpress
 spec:
   ingressClassName: nginx
   rules:
-  - host: wp-btech.id
+  - host: wordpress.big.go.id
     http:
       paths:
       - path: /
