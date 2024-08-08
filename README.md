@@ -1,5 +1,10 @@
 # wordpress
 
+## Prerequites
+- Kubernetes Cluster
+- Rancher (optional)
+- NFS server for storing pv & pvc
+
 ## Create namespace
 
 ### From Rancher
