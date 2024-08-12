@@ -92,21 +92,22 @@ spec:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
           claimName: wp-pv-claim
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: wordpress-ingress
-#  namespace: wordpress
-#spec:
-#  ingressClassName: nginx
-#  rules:
-#  - host: wordpress.xx.com
-#    http:
-#      paths:
-#      - path: /
-#        pathType: Prefix
-#        backend:
-#          service:
-#            name: wordpress
-#            port:
-#              number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wordpress-ingress
+  namespace: wordpress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: wordpress.xx.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wordpress
+            port:
+              number: 80
